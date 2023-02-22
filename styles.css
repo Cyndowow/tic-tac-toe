@@ -23,7 +23,7 @@ body {
     justify-content: center;
 }
 
-.player-item {
+.message {
     display: flex;
     justify-content: center;
     align-items: center;

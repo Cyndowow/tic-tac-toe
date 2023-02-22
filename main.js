@@ -27,10 +27,11 @@ const gameBoardModule = (() => {
 const displayController = (() => {
     const fieldElements = document.querySelectorAll('.field');
     const restart = document.getElementById('restart');
+    const message = document.querySelector ('message');
 
     fieldElements.forEach((field) =>
         field.addEventListener("click", (e) => {
-            if (e.target.textContent !== "") return;
+            if (gameFlow.getIsOver() || e.target.textContent !== "") return;
             gameFlow.playRound(parseInt(e.target.dataset.index));
             updateGameBoard();
         })
@@ -51,7 +52,7 @@ const displayController = (() => {
 
 
     return {
-        updateGameBoard,
+        
     }
 })();
 
@@ -75,8 +76,15 @@ const gameFlow = (() => {
 
     const playRound = (fieldIndex) => {
         gameBoardModule.setGameboard(fieldIndex, getCurrentPlayerSign());
+        if (checkWinner(fieldIndex)) {
+            isOver = true;
+            return;
+        }
+        if (round === 9) {
+            isOver = true;
+            return;
+        }
         round++;
-        
     }
 
 
@@ -89,8 +97,36 @@ const gameFlow = (() => {
         isOver = false;
     }
 
+    const checkWinner = (fieldIndex) => {
+        const winConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ];
+    
+
+    return winConditions
+        .filter((combination) => combination.includes(fieldIndex))
+        .some((possibleCombination) =>
+            possibleCombination.every(
+                (index) => gameBoardModule.getGameBoard(index) === getCurrentPlayerSign()
+            )
+        );
+    };
+
+    const getIsOver = () => {
+        return isOver;
+    }
+
+
     return {
         playRound,
-        reset
+        reset,
+        getIsOver
     }
 })();
