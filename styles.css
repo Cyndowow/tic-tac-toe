@@ -9,6 +9,11 @@ body {
     justify-content: center;
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
 .board {
     display: grid;
     grid-template-columns: 80px 80px 80px;
@@ -16,4 +21,19 @@ body {
     width: 100%;
     padding: 1em 0 1em 0;
     justify-content: center;
+}
+
+.player-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.restart {
+    display: flex;
+    justify-content: center;
+}
+
+.field {
+    border: 1px solid black;
 }
