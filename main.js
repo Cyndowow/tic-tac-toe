@@ -27,7 +27,7 @@ const gameBoardModule = (() => {
 const displayController = (() => {
     const fieldElements = document.querySelectorAll('.field');
     const restart = document.getElementById('restart');
-    const message = document.querySelector ('message');
+    const messageElement = document.getElementById ('message');
 
     fieldElements.forEach((field) =>
         field.addEventListener("click", (e) => {
@@ -47,12 +47,25 @@ const displayController = (() => {
         gameBoardModule.reset();
         gameFlow.reset();
         updateGameBoard();
-    })
+    });
+
+    const setMessage = (message) => {
+        messageElement.textContent = message;
+    }
+
+    const setResultMessage = (winner) => {
+        if (winner === "Draw") {
+            setMessage("It's a draw!");
+        } else {
+            setMessage(`Player ${winner} has won!`);
+        }
+    }
 
 
 
     return {
-        
+        setMessage,
+        setResultMessage
     }
 })();
 
@@ -77,10 +90,12 @@ const gameFlow = (() => {
     const playRound = (fieldIndex) => {
         gameBoardModule.setGameboard(fieldIndex, getCurrentPlayerSign());
         if (checkWinner(fieldIndex)) {
+            displayController.setResultMessage(getCurrentPlayerSign());
             isOver = true;
             return;
         }
         if (round === 9) {
+            displayController.setResultMessage("Draw");
             isOver = true;
             return;
         }
