@@ -30,6 +30,7 @@ const displayController = (() => {
 
     fieldElements.forEach((field) =>
         field.addEventListener("click", (e) => {
+            if (e.target.textContent !== "") return;
             gameFlow.playRound(parseInt(e.target.dataset.index));
             updateGameBoard();
         })
