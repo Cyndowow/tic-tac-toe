@@ -1,12 +1,14 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #282928;
 }
 
 .header {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #d4d9d7;
 }
 
 .main {
@@ -16,34 +18,43 @@ body {
 
 .board {
     display: grid;
-    grid-template-columns: 80px 80px 80px;
-    grid-template-rows: 80px 80px 80px;
-    width: 100%;
-    padding: 1em 0 1em 0;
+    grid-template-columns: repeat(3, 1fr);
+    width: 454px;
+    height: 454px;
+    border: 2px solid #e309e3;
+    box-shadow: 0 0 10px #e309e3;
+    margin: 0px auto;
     justify-content: center;
 }
 
-.message {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .restart {
     display: flex;
     justify-content: center;
+    margin: 20px 0;
 }
 
 .field {
-    border: 1px solid black;
-    display: flex;
+    border: 1px solid #e309e3;
+    width: 150px;
+    height: 150px;
     font-weight: bold;
-    align-items: center;
-    justify-content: center;
     font-size: 100px;
+    text-align: center;
+    justify-content: center;
+    user-select: none;
+    cursor: pointer;
+    color: #f2131b;
 }
 
 .message {
     padding: 20px 0;
     font-size: 3rem;
+    text-align: center;
+    color: #d4d9d7;
+}
+
+.field:hover {
+    background-color: #1cf61c;
+    opacity: 10%;
 }
