@@ -4,6 +4,15 @@ body {
     background-color: #282928;
 }
 
+button {
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
 .header {
     display: flex;
     align-items: center;
@@ -34,6 +43,18 @@ body {
     margin: 20px 0;
 }
 
+.restart-button {
+    padding: 10px 20px;
+    border: 3px solid #7fa1c7;
+    border-radius: 7px;
+    font-size: 3rem;
+    background-color: #8a929c;
+}
+
+.restart-button:hover {
+    background-color: #63686e;
+}
+
 .field {
     border: 1px solid #e309e3;
     width: 150px;
@@ -44,7 +65,7 @@ body {
     justify-content: center;
     user-select: none;
     cursor: pointer;
-    color: #f2131b;
+    color: #003ffc;
 }
 
 .message {
