@@ -55,6 +55,10 @@ button {
     background-color: #63686e;
 }
 
+.restart-button:active {
+    background-color: #43464a;   
+}
+
 .field {
     border: 1px solid #e309e3;
     width: 150px;
