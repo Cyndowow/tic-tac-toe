@@ -42,3 +42,8 @@ body {
     justify-content: center;
     font-size: 100px;
 }
+
+.message {
+    padding: 20px 0;
+    font-size: 3rem;
+}

@@ -47,6 +47,7 @@ const displayController = (() => {
         gameBoardModule.reset();
         gameFlow.reset();
         updateGameBoard();
+        setMessage("Player X's turn");
     });
 
     const setMessage = (message) => {
@@ -100,6 +101,9 @@ const gameFlow = (() => {
             return;
         }
         round++;
+        displayController.setMessage(
+            `Player ${getCurrentPlayerSign()}'s turn`
+        );
     }
 
 
