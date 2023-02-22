@@ -47,7 +47,6 @@ const displayController = (() => {
         gameBoardModule.reset();
         gameFlow.reset();
         updateGameBoard();
-        setMessage("Player X's turn");
     });
 
     const setMessage = (message) => {
@@ -114,6 +113,7 @@ const gameFlow = (() => {
     const reset = () => {
         round = 1;
         isOver = false;
+        displayController.setMessage("Player X's turn");
     }
 
     const checkWinner = (fieldIndex) => {
